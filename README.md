@@ -1,30 +1,19 @@
 # Reverse subscription
+An OpenResty (Nginx) reverse proxy and backend for Materialize.
 
-An OpenResty (Nginx) reverse proxy and backend for Materialize Cloud.
+<img width="2212" alt="Nginx" src="https://user-images.githubusercontent.com/11491779/216778976-714b0737-7ce1-45fd-b484-088a7e3db172.png">
 
-Features:
+## Features
 
 * Run queries or subscriptions
 * Hide Materialize address and credentials
 * Custom Authorization (WIP)
-* Reuse JWT fields in SQL
+* Reuse JWT fields in SQL (WIP)
 
 ## Steps
 
 1. Clone the repository.
 2. Set your config in `config.sh`
-```bash
-# Replace with your config
-USER="<MATERIALIZE_USER>";
-PASSWORD="<MATERIALIZE_PASSWORD>";
-AUTHORIZATION="<MATERIALIZE_BASIC_AUTH>";
-MATERIALIZE_IP="111.111.111.111";
-QUERIES="{
-    sub = \"SELECT $1 as sub\",  <- The backend will replace $1 with the JWT sub field.
-    metrics = \"SELECT * FROM mz_internal.mz_cluster_replica_metrics\",
-    a = \"mz_internal.mz_cluster_replica_metrics\"
-}"
-```
 3. Run `config.sh`:
 ```bash
 chmod +x config.sh
