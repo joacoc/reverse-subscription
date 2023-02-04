@@ -3,12 +3,23 @@ An OpenResty (Nginx) reverse proxy and backend for Materialize.
 
 <img width="2212" alt="Nginx" src="https://user-images.githubusercontent.com/11491779/216778976-714b0737-7ce1-45fd-b484-088a7e3db172.png">
 
+Configure a query as an endpoint:
+```sql
+metrics = SELECT * FROM mz_internal.mz_cluster_replica_metrics;
+```
+
+Send a request or open a websocket to the endpoint and use your own JWT tokens:
+
+```curl
+curl localhost:8080/?query=metrics&token=<token>
+```
+
 ## Features
 
 * Run queries or subscriptions
-* Hide Materialize address and credentials
-* Custom Authorization (WIP)
-* Reuse JWT fields in SQL (WIP)
+* Secure your Materialize address and credentials
+* Custom Authorization (JWT) - WIP
+* Reuse JWT fields in SQL - WIP
 
 ## Steps
 
