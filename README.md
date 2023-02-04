@@ -10,8 +10,10 @@ metrics = SELECT * FROM mz_internal.mz_cluster_replica_metrics;
 
 Send a request or open a websocket to the endpoint and use your own JWT tokens:
 
-```curl
+```bash
 curl localhost:8080/?query=metrics&token=<token>
+or
+websocat 'ws://localhost:8080/subscribe?query=metrics&token=<token>'
 ```
 
 ## Features
