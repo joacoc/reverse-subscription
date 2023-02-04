@@ -12,7 +12,7 @@ Send a request or open a websocket to the endpoint and use your own JWT tokens:
 
 ```bash
 curl localhost:8080/?query=metrics&token=<token>
-or
+# or
 websocat 'ws://localhost:8080/subscribe?query=metrics&token=<token>'
 ```
 
